@@ -12,7 +12,7 @@
 ## DevSecOps Pipeline
 #### We will apply DevSecOps principles for above python flask app for security pipeline practice
 
-### 1. CI (Continuous Integratioon with Security Scanning) 
+### 1. CI (Continuous Integration with Security Scanning) 
 
 #### Step-1: Code Quality Checks and Vulnerabilities Scan
 
