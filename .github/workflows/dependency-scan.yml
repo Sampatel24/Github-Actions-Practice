@@ -1,4 +1,4 @@
-# Package - issues or vulnerabilities related to packages
+# Package - issues or vulnerabilities related to packages.
 # pip-audit is a tool that checks Python dependencies for known vulnerabilities.
 # It audits the installed packages in a Python environment against a database of known vulnerabilities, helping developers identify and address security issues in their dependencies.
 name: Dependency Scan
