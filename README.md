@@ -12,7 +12,7 @@
 ## DevSecOps Pipeline
 #### We will apply DevSecOps principles for above python flask app for security pipeline practice
 
-### 1.CI (Continuous Integratioon with Security Scanning) 
+### 1. CI (Continuous Integratioon with Security Scanning) 
 
 #### Step-1: Code Quality Checks and Vulnerabilities Scan
 
@@ -30,11 +30,12 @@
 - Trivy [Scan docker image for CVEs using Trivy](.github/workflows/image-scan.yml)
 
 
-### 2.CD (Continuous Deployment)
+### 2. CD (Continuous Deployment)
 
 - Appleboy [Deploy to Production/Server(i.e AWS EC2 Instance) via SSH using Appleboy](.github/workflows/deploy-to-server.yml)
 
 
-### 3.DevSecOps End To End Pipeline
+### 3. DevSecOps End To End Pipeline
 #### This workflow defines a DevSecOps pipeline that will connects the other workflows together.
+
 - [DevSecOps Pipeline](.github/workflows/devsecops-pipeline.yml)
