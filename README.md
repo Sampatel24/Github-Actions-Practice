@@ -1,4 +1,4 @@
-# This is a GitHub Actions Practice Repo
+# This is GitHub Actions Practice Repo
 
 ## Practice Workflows
 
