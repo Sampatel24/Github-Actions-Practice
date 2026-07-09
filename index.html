@@ -3,327 +3,334 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samir Patel | Elite Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<title>Samir Patel — DevOps & AI Infrastructure Engineer</title>
+<meta name="description" content="Samir Patel — DevOps and AI infrastructure engineer based in Melbourne. Builds systems that monitor, diagnose, and fix themselves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-    --accent:#00d4ff;
-    --bg:#0b0f1a;
-    --glass:rgba(255,255,255,0.06);
-}
-
-*{
+  :root{
+    --bg:#F5F6F4;
+    --panel:#FFFFFF;
+    --border:#E1E4DE;
+    --ink:#15181B;
+    --ink-soft:#4B5259;
+    --mono-soft:#5B6570;
+    --ok:#2F7A4F;
+    --ok-dim:#E7F2EC;
+    --amber:#A5680F;
+    --blue:#2A5FA5;
+    --blue-dim:#E9EFF7;
+    --radius:10px;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --sans:'Inter', -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
     margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
-    scroll-behavior:smooth;
-}
-
-body{
     background:var(--bg);
-    color:white;
-    overflow-x:hidden;
-}
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
 
-/* PARTICLE BG */
-canvas{
-    position:fixed;
-    top:0;left:0;
-    z-index:-1;
-}
+  /* ---- status bar ---- */
+  .statusbar{
+    border-bottom:1px solid var(--border);
+    background:var(--panel);
+  }
+  .statusbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:900px;margin:0 auto;
+    font-family:var(--mono);font-size:13px;color:var(--mono-soft);
+    flex-wrap:wrap;gap:10px;
+  }
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ok-dim);color:var(--ok);
+    padding:5px 12px;border-radius:999px;
+    font-weight:600;font-size:12.5px;
+  }
+  .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--ok);
+    box-shadow:0 0 0 0 rgba(47,122,79,0.5);
+    animation:pulse 2.2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(47,122,79,0.45);}
+    70%{box-shadow:0 0 0 7px rgba(47,122,79,0);}
+    100%{box-shadow:0 0 0 0 rgba(47,122,79,0);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .dot{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+  .statusbar-links{display:flex;gap:16px;}
 
-/* GLASS */
-.glass{
-    background:var(--glass);
-    backdrop-filter:blur(20px);
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.1);
-}
+  /* ---- hero ---- */
+  header.hero{padding:64px 0 40px;}
+  .eyebrow{
+    font-family:var(--mono);font-size:12.5px;color:var(--mono-soft);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;
+  }
+  h1{
+    font-family:var(--mono);font-weight:800;
+    font-size:clamp(30px,5vw,46px);line-height:1.15;
+    margin:0 0 18px;letter-spacing:-0.01em;
+  }
+  h1 .accent{color:var(--blue);}
+  .lede{
+    font-size:17px;color:var(--ink-soft);max-width:60ch;margin:0 0 28px;
+  }
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);font-size:13.5px;font-weight:600;
+    padding:10px 16px;border-radius:8px;border:1px solid var(--border);
+    background:var(--panel);color:var(--ink);
+  }
+  .btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+  .btn:hover{text-decoration:none;border-color:var(--blue);}
+  .btn.primary:hover{opacity:.88;}
 
-/* NAV */
-header{
-    position:fixed;
-    width:100%;
-    padding:20px 10%;
-    display:flex;
-    justify-content:space-between;
-    z-index:1000;
-}
+  /* ---- section shared ---- */
+  section{padding:44px 0;border-top:1px solid var(--border);}
+  .section-label{
+    font-family:var(--mono);font-size:12.5px;color:var(--mono-soft);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .section-label::after{
+    content:'';flex:1;height:1px;background:var(--border);
+  }
 
-nav a{
-    margin-left:20px;
-    text-decoration:none;
-    color:white;
-    opacity:0.7;
-}
+  /* ---- services (projects) ---- */
+  .card{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:var(--radius);padding:22px 24px;margin-bottom:16px;
+  }
+  .card-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:16px;margin-bottom:10px;flex-wrap:wrap;
+  }
+  .card-title{font-size:18px;font-weight:600;margin:0;}
+  .card-status{
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    color:var(--ok);background:var(--ok-dim);padding:3px 9px;border-radius:999px;
+    white-space:nowrap;
+  }
+  .card-desc{color:var(--ink-soft);font-size:14.5px;margin:0 0 16px;}
+  .metrics{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:16px;}
+  .metric{font-family:var(--mono);}
+  .metric .num{font-size:20px;font-weight:700;color:var(--ink);display:block;}
+  .metric .label{font-size:11.5px;color:var(--mono-soft);}
+  .tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;}
+  .tag{
+    font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);
+    border:1px solid var(--border);padding:3px 9px;border-radius:6px;
+  }
+  .card-link{font-family:var(--mono);font-size:13px;font-weight:600;}
 
-nav a.active, nav a:hover{
-    opacity:1;
-    color:var(--accent);
-}
+  /* ---- deploy log (experience) ---- */
+  .log-entry{
+    display:grid;grid-template-columns:100px 1fr;gap:18px;
+    padding:18px 0;border-bottom:1px solid var(--border);
+  }
+  .log-entry:last-child{border-bottom:none;}
+  .log-time{
+    font-family:var(--mono);font-size:12px;color:var(--mono-soft);
+    padding-top:2px;
+  }
+  .log-role{font-weight:600;font-size:15.5px;margin:0 0 3px;}
+  .log-co{color:var(--blue);font-size:13.5px;font-weight:500;margin-bottom:8px;}
+  .log-body{color:var(--ink-soft);font-size:14px;margin:0 0 10px;}
+  .log-metrics{display:flex;gap:16px;flex-wrap:wrap;}
+  .log-metric{
+    font-family:var(--mono);font-size:11.5px;color:var(--ink);
+    background:var(--blue-dim);padding:3px 9px;border-radius:6px;
+  }
 
-/* SECTIONS */
-section{
-    min-height:100vh;
-    padding:120px 10%;
-}
+  /* ---- components (stack) ---- */
+  .stack-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+  }
+  .stack-group{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:var(--radius);padding:16px 18px;
+  }
+  .stack-group h3{
+    font-family:var(--mono);font-size:12px;text-transform:uppercase;
+    letter-spacing:.06em;color:var(--mono-soft);margin:0 0 10px;font-weight:600;
+  }
+  .stack-group p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
 
-/* HERO */
-.hero{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
-}
+  /* ---- footer ---- */
+  footer{padding:40px 0 60px;}
+  .footer-grid{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    flex-wrap:wrap;gap:24px;
+  }
+  .footer-cta h2{font-family:var(--mono);font-size:22px;margin:0 0 8px;}
+  .footer-cta p{color:var(--ink-soft);font-size:14.5px;margin:0 0 16px;max-width:44ch;}
+  .footer-links{
+    font-family:var(--mono);font-size:13px;color:var(--mono-soft);
+    display:flex;flex-direction:column;gap:6px;align-items:flex-end;
+  }
+  .build-line{
+    font-family:var(--mono);font-size:11px;color:var(--mono-soft);
+    margin-top:36px;padding-top:16px;border-top:1px solid var(--border);
+  }
 
-.hero h1{
-    font-size:3.5rem;
-}
-
-.typing{
-    color:var(--accent);
-    margin:10px 0;
-}
-
-/* IMAGE */
-.profile{
-    width:320px;
-    border-radius:20px;
-    overflow:hidden;
-    transform-style:preserve-3d;
-}
-
-.profile img{
-    width:100%;
-    display:block;
-}
-
-/* BUTTON */
-.btn{
-    padding:12px 25px;
-    background:var(--accent);
-    color:black;
-    border-radius:30px;
-    display:inline-block;
-    margin-top:20px;
-    transition:0.2s;
-}
-
-.btn:hover{
-    transform:scale(1.1);
-}
-
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-/* CARD */
-.card{
-    padding:25px;
-    transition:0.3s;
-    transform-style:preserve-3d;
-}
-
-.card:hover{
-    transform:rotateY(10deg) rotateX(5deg);
-}
-
-/* SKILLS */
-.skill{
-    padding:12px;
-    text-align:center;
-    border-radius:10px;
-    background:#ffffff10;
-}
-
-.skill:hover{
-    background:var(--accent);
-    color:black;
-}
-
-/* REVEAL */
-.hidden{
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.6s;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
+  @media (max-width:600px){
+    .log-entry{grid-template-columns:1fr;gap:4px;}
+    .footer-grid{flex-direction:column;align-items:flex-start;}
+    .footer-links{align-items:flex-start;}
+  }
 </style>
 </head>
-
 <body>
 
-<canvas id="bg"></canvas>
+<div class="statusbar">
+  <div class="statusbar-inner">
+    <span class="pill"><span class="dot"></span>Available — open to new engagements</span>
+    <div class="statusbar-links">
+      <a href="mailto:patelsamir833@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/samir-patel/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Sampatel24" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
 
-<header class="glass">
-    <h2>Samir Patel</h2>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+<div class="wrap">
 
-<section id="home" class="hero">
-    <div>
-        <h1>Samir Patel</h1>
-        <div class="typing" id="typing"></div>
-        <p>Designing scalable data systems & ML solutions.</p>
-        <a href="#contact" class="btn">Hire Me</a>
+  <header class="hero">
+    <div class="eyebrow">Samir Patel · Melbourne, Australia</div>
+    <h1>I build systems that<br>watch themselves<span class="accent">.</span></h1>
+    <p class="lede">DevOps and AI infrastructure engineer. 3+ years shipping CI/CD, cloud infrastructure, and autonomous AI agents into production across 20+ enterprise client environments. Currently building agentic systems that diagnose and fix themselves — no human paged.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:patelsamir833@gmail.com">Get in touch</a>
+      <a class="btn" href="#services">View projects</a>
+      <a class="btn" href="https://github.com/Sampatel24" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="section-label">services — key projects</div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3 class="card-title">K8sSentinel</h3>
+        <span class="card-status">● autonomous</span>
+      </div>
+      <p class="card-desc">AI-driven Kubernetes self-healing agent. A Scan → Diagnose → Fix pipeline built on Claude Sonnet and Temporal orchestration that detects pod failures (CrashLoopBackOff, OOMKilled, ImagePullBackOff), generates root-cause analysis, and executes targeted remediation — with zero manual intervention and full audit trail through Temporal's UI.</p>
+      <div class="metrics">
+        <div class="metric"><span class="num">0</span><span class="label">manual interventions</span></div>
+        <div class="metric"><span class="num">3-stage</span><span class="label">scan · diagnose · fix</span></div>
+        <div class="metric"><span class="num">100%</span><span class="label">workflow observability</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Claude Sonnet</span><span class="tag">Temporal</span><span class="tag">Kubernetes</span><span class="tag">Python</span>
+      </div>
+      <a class="card-link" href="https://github.com/Sampatel24" target="_blank" rel="noopener">Browse repo →</a>
     </div>
 
-    <div class="profile glass" id="tilt">
-        <img src="SamirPatel.JPEG" alt="Samir Patel Profile Picture">
+    <div class="card">
+      <div class="card-head">
+        <h3 class="card-title">SecureVault AI</h3>
+        <span class="card-status">● shipped</span>
+      </div>
+      <p class="card-desc">End-to-end DevSecOps pipeline for a containerised fintech application on AWS. Nine sequential security gates — SAST, SCA, secret scanning, dynamic testing — enforcing OWASP Top 10 compliance at every stage, with an Ollama LLM engine automating security review triage. Keyless deployment via IAM OIDC and Docker Compose.</p>
+      <div class="metrics">
+        <div class="metric"><span class="num">75%</span><span class="label">faster SCA scans</span></div>
+        <div class="metric"><span class="num">9</span><span class="label">security gates</span></div>
+        <div class="metric"><span class="num">0</span><span class="label">unvetted images shipped</span></div>
+      </div>
+      <div class="tags">
+        <span class="tag">AWS</span><span class="tag">GitHub Actions</span><span class="tag">Ollama</span><span class="tag">Docker</span><span class="tag">Secrets Manager</span>
+      </div>
+      <a class="card-link" href="https://github.com/Sampatel24" target="_blank" rel="noopener">Browse repo →</a>
     </div>
-</section>
+  </section>
 
-<section id="about" class="hidden">
-<div class="glass card">
-<h2>About Me</h2>
-<p>Data Engineer at Siemens (Brightly Software) specializing in AWS, ML, and cloud infrastructure.</p>
+  <section id="log">
+    <div class="section-label">deploy log — experience</div>
+
+    <div class="log-entry">
+      <div class="log-time">2023 — 2026</div>
+      <div>
+        <p class="log-role">Data Integration &amp; DevOps Engineer</p>
+        <p class="log-co">Brightly Software (Siemens Group) · Melbourne</p>
+        <p class="log-body">Owned CI/CD and DevSecOps delivery across 20+ enterprise client environments. Designed pipelines, provisioned AWS infrastructure via Terraform, and applied AI-assisted engineering to cut manual operational effort.</p>
+        <div class="log-metrics">
+          <span class="log-metric">15+ CI/CD pipelines shipped</span>
+          <span class="log-metric">90% faster provisioning</span>
+          <span class="log-metric">Tier-2 support, 10+ clients</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="log-entry">
+      <div class="log-time">2022</div>
+      <div>
+        <p class="log-role">Data Engineer</p>
+        <p class="log-co">CloudMarc (Foxtel Group) · Melbourne</p>
+        <p class="log-body">Engineered and maintained Foxtel Group's cloud data platform on GCP. Provisioned infrastructure via Terraform, built CI/CD with Jenkins, and stood up monitoring frameworks to catch degradation before client impact.</p>
+        <div class="log-metrics">
+          <span class="log-metric">99.9% uptime SLA</span>
+          <span class="log-metric">Provisioning: hours → 30 min</span>
+          <span class="log-metric">40% less manual release effort</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-label">components — stack</div>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <h3>Cloud &amp; Infra</h3>
+        <p>AWS (EC2, EKS, S3, IAM, Lambda, ECS) · GCP · Terraform · Docker · Kubernetes · ArgoCD</p>
+      </div>
+      <div class="stack-group">
+        <h3>AI &amp; LLM</h3>
+        <p>Claude · AWS Bedrock · LangChain · Agentic AI · Model Context Protocol</p>
+      </div>
+      <div class="stack-group">
+        <h3>CI/CD &amp; Security</h3>
+        <p>GitHub Actions · Jenkins · SAST/DAST/SCA · Secrets Manager</p>
+      </div>
+      <div class="stack-group">
+        <h3>Observability</h3>
+        <p>Prometheus · Grafana · CloudWatch · OpenTelemetry</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-cta">
+        <h2>Let's build something.</h2>
+        <p>Open to Forward Deployed, AI Engineer, and DevOps/Platform roles — especially ones where I own a workstream end-to-end.</p>
+        <a class="btn primary" href="mailto:patelsamir833@gmail.com">patelsamir833@gmail.com</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/samir-patel/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Sampatel24" target="_blank" rel="noopener">GitHub</a>
+        <span>Melbourne, Australia</span>
+      </div>
+    </div>
+    <div class="build-line">$ last deployed: 2026-07-09 · status: operational</div>
+  </footer>
+
 </div>
-</section>
-
-<section id="experience" class="hidden">
-<h2>Experience</h2>
-<div class="grid">
-<div class="glass card">Siemens (Brightly)<br>Data Engineer</div>
-<div class="glass card">CloudMarc<br>Data Engineer</div>
-<div class="glass card">Zensar<br>Data Analyst</div>
-</div>
-</section>
-
-<section id="skills" class="hidden">
-<h2>Skills</h2>
-<div class="grid">
-<div class="skill">Python</div>
-<div class="skill">SQL</div>
-<div class="skill">AWS</div>
-<div class="skill">ML</div>
-<div class="skill">Terraform</div>
-<div class="skill">Docker</div>
-</div>
-</section>
-
-<section id="contact">
-<h2>Contact</h2>
-
-<div class="card">
-
-<p>📧 Email: 
-<a href="mailto:patelsamir833@gmail.com">
-patelsamir833@gmail.com
-</a>
-</p>
-
-<p>💼 LinkedIn: 
-<a href="https://www.linkedin.com/in/samir-patel-33862284/" target="_blank" rel="noopener noreferrer">
-linkedin.com/in/samir-patel-33862284
-</a>
-</p>
-
-<p>📱 Phone: +61 466 560 000</p>
-
-</div>
-</section>
-
-<script>
-// Typing
-const roles=["Data Engineer","ML Engineer","AWS Specialist"];
-let i=0,j=0,del=false;
-
-function type(){
-    const el=document.getElementById("typing");
-    if(!el) return;
-
-    let txt=roles[i];
-    el.innerText=txt.substring(0,j);
-
-    if(!del && j<txt.length) j++;
-    else if(del && j>0) j--;
-    else {
-        del=!del;
-        if(!del) i=(i+1)%roles.length;
-    }
-
-    setTimeout(type,del?50:100);
-}
-type();
-
-// Reveal
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting) e.target.classList.add("show");
-});
-});
-
-document.querySelectorAll(".hidden").forEach(el=>obs.observe(el));
-
-// Tilt
-const tilt=document.getElementById("tilt");
-
-if(tilt){
-tilt.addEventListener("mousemove",(e)=>{
-let x=e.offsetX/tilt.clientWidth-0.5;
-let y=e.offsetY/tilt.clientHeight-0.5;
-tilt.style.transform=`rotateY(${x*20}deg) rotateX(${-y*20}deg)`;
-});
-
-tilt.addEventListener("mouseleave",()=>{
-tilt.style.transform="rotateY(0) rotateX(0)";
-});
-}
-
-// Particle BG
-const c=document.getElementById("bg");
-const ctx=c.getContext("2d");
-
-function resizeCanvas(){
-c.width=window.innerWidth;
-c.height=window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-let particles=[];
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*c.width,
-y:Math.random()*c.height,
-vx:Math.random()*2-1,
-vy:Math.random()*2-1
-});
-}
-
-function draw(){
-ctx.clearRect(0,0,c.width,c.height);
-
-particles.forEach(p=>{
-p.x+=p.vx;
-p.y+=p.vy;
-
-if(p.x>c.width||p.x<0) p.vx*=-1;
-if(p.y>c.height||p.y<0) p.vy*=-1;
-
-ctx.fillRect(p.x,p.y,2,2);
-});
-
-requestAnimationFrame(draw);
-}
-draw();
-</script>
-
 </body>
 </html>
